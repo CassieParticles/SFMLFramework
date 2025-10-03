@@ -1,4 +1,16 @@
 ﻿list(APPEND ENGINE "Engine/TestScript.cpp" "Engine/TestScript.h")
 
 add_library(SFMLFramework STATIC ${ENGINE})
- 
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+include(FetchContent)
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 3.0.2
+    GIT_SHALLOW ON
+    EXCLUDE_FROM_ALL
+    SYSTEM)
+FetchContent_MakeAvailable(SFML)
+
+target_link_libraries(SFMLFramework PUBLIC SFML::Graphics)

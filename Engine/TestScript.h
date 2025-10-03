@@ -1,3 +1,7 @@
 #pragma once
 
-void DoStuff();
+#include <SFML/Graphics.hpp>
+
+class Window
+{
+};
